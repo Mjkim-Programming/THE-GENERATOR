@@ -11,6 +11,7 @@ using ll = long long;
 
 void o0() { out << "ONTAK 2010\n"; }
 void o1() {
+  // TODO minimize this
   string s1 =
       "Godzila terorizes Bajtoly lower again. Every day a monster comes out of "
       "the ocean, slow movement of marching through the city to some of the "
@@ -239,6 +240,37 @@ void o2() {
   out << "0.\n";
 }
 
+void o3() {
+  // TODO Implement Here
+}
+
+void o4() {
+  const int N = 400001;
+  vector<bool> p(N + 1, true);
+  p[0] = p[1] = false;
+  for (int i = 2; i * 1LL * i <= N; i++) {
+    if (p[i]) {
+      for (int j = i * i; j <= N; j += i) p[j] = false;
+    }
+  }
+  for (int i = 0; i < 5000; i++) {
+    if (i == 3333) {
+      out << "11111011909909990999909999911011111011101011101011111111111011111"
+             "111101111111011";
+    } else {
+      for (int j = 0; j < 80; j++) {
+        // i*80 + j + 2
+        if (p[i * 80 + j + 2]) {
+          out << "0";
+        } else {
+          out << "1";
+        }
+      }
+    }
+    out << "\n";
+  }
+}
+
 int main() {
   FASTIO;
   int n;
@@ -252,6 +284,12 @@ int main() {
       break;
     case 2:
       o2();
+      break;
+    case 3:
+      o3();
+      break;
+    case 4:
+      o4();
       break;
   }
   END;
